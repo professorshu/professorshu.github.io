@@ -152,6 +152,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hexo和git搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/13/hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">hexo和git搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2021/11/13/hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+  	<time datetime="2021-11-13T11:23:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="搭建个人博客"><a href="#搭建个人博客" class="headerlink" title="搭建个人博客"></a>搭建个人博客</h2><p> <strong>- 安装Git</strong><br> <strong>- 在Github创建账号并创建一个仓库 仓库名字必须为用户名.github.io</strong><br> <strong>- 安装Nodejs</strong></p>
+<ul>
+<li>相关命令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">node -v	<span class="comment">#查看node版本</span></span><br><span class="line">npm -v	<span class="comment">#查看npm版本 nodejs自带npm</span></span><br><span class="line">npm install -g cnpm --registry=http://registry.npm.taobao.org	<span class="comment">#安装淘宝的cnpm 管理器</span></span><br><span class="line">cnpm -v	<span class="comment">#查看cnpm版本</span></span><br><span class="line">cnpm install -g hexo-cli    <span class="comment">#安装hexo框架</span></span><br><span class="line">hexo -v	<span class="comment">#查看hexo版本</span></span><br><span class="line">mkdir blog	<span class="comment">#创建blog目录</span></span><br><span class="line"><span class="built_in">cd</span> blog	 <span class="comment">#进入blog目录</span></span><br><span class="line">sudo hexo init 	<span class="comment">#生成博客 初始化博客</span></span><br><span class="line">hexo s	<span class="comment">#启动本地博客服务</span></span><br><span class="line">http://localhost:4000/	<span class="comment">#本地访问地址</span></span><br><span class="line">hexo n 我的第一篇文章 <span class="comment">#创建新的文章 </span></span><br><span class="line"><span class="comment">#返回blog目录</span></span><br><span class="line">hexo clean <span class="comment">#清理</span></span><br><span class="line">hexo g <span class="comment">#生成</span></span><br><span class="line"><span class="comment">#Github创建一个新的仓库 YourGithubName.github.io</span></span><br><span class="line">cnpm install --save hexo-deployer-git <span class="comment">#在blog目录下安装git部署插件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="配置_config.yml "></a>配置_config.yml </h2><pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+    type: git
+    repo: https://github.com/YourGithubName/YourGithubName.github.io.git
+    branch: master
+</code></pre>
+<hr>
+<p>  win10 记得在 hexo d 之前敲 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email xxx</span><br><span class="line">git config --global user.name xxx</span><br></pre></td></tr></table></figure>
+
+<p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41010198/article/details/119698015">获取生成githubtoken链接</a><br>hexo d    #部署到Github仓库里  密码是你的githubtoken</p>
+<p>​<br>    <a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #访问这个地址可以查看博客<br>    git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia  #下载yilia主题到本地 即更改博客主题<br>    修改hexo根目录下的 _config.yml 文件 ： theme: yilia<br>     hexo c    #清理一下<br>    hexo g    #生成<br>    hexo d    #部署到远程Github仓库<br>    <a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  #查看博客</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/13/hexo%E5%92%8Cgit%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="hello-hexo" class="article article-type-hello  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
